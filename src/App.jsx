@@ -1,9 +1,6 @@
-function App() {
-  const articles = [
-    { id: 1, title: "Reactでブログを作る" },
-    { id: 2, title: "10行チャレンジとは？" },
-  ];
+import { articles } from "./articles";
 
+function App() {
   return (
     <div>
       <h1>記事一覧</h1>
