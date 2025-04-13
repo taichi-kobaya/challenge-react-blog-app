@@ -1,6 +1,7 @@
 import { Routes, Route, Link } from 'react-router-dom';
 import { articles } from "./articles";
 import Article from './Article'; 
+import NewArticle from './NewAaricle';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         </ul>
       } />
       <Route path="/articles/:id" element={<Article />} />
+      <Route path="/new" element={<NewArticle />} />
     </Routes>
   );
 }
