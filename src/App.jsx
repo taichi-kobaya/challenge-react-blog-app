@@ -1,5 +1,6 @@
 import { Routes, Route, Link } from 'react-router-dom';
 import { articles } from "./articles";
+import Article from './Article'; 
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
           ))}
         </ul>
       } />
-      <Route path="/articles/:id" element={<p>詳細ページ（仮）</p>} />
+      <Route path="/articles/:id" element={<Article />} />
     </Routes>
   );
 }
