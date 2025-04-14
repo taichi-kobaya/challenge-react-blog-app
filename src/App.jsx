@@ -1,7 +1,7 @@
 import { Routes, Route, Link } from 'react-router-dom';
 import { articles } from "./articles";
 import Article from './Article'; 
-import NewArticle from './NewAaricle';
+import NewArticle from './NewArticle';
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
         </ul>
       } />
       <Route path="/articles/:id" element={<Article />} />
-      <Route path="/new" element={<NewArticle />} />
+      <Route path="/articles/new" element={<NewArticle />} />
     </Routes>
   );
 }
