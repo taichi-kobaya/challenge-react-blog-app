@@ -7,6 +7,10 @@ function PostForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        if (!title.trim() || !content.trim()) {
+            alert("タイトルと本文の両方を入力してください");
+            return;
+        }
         const newPost = { title, content };
         setPosts([newPost, ...posts]);
         setTitle("");
