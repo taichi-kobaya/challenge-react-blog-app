@@ -4,21 +4,24 @@ function PostForm() {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
     const [posts, setPosts] = useState([]);
+    const [error, setError] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
         if (!title.trim() || !content.trim()) {
-            alert("タイトルと本文の両方を入力してください");
+            setError("タイトルと本文の両方を入力してください");
             return;
         }
         const newPost = { title, content };
         setPosts([newPost, ...posts]);
         setTitle("");
         setContent("");
+        setError("");
     };
 
     return (
         <div className="p-4 max-w-md mx-auto">
+            {error && <p className="text-red-500">{error}</p>}
             <form onSubmit={handleSubmit} className="space-y-2">
                 <input 
                     value={title}
