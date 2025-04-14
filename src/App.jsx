@@ -1,9 +1,17 @@
+import { useState } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
-import { articles } from "./articles";
-import Article from './Article'; 
+import { articles as initialArticles } from "./articles";
+import Article from './Article';
 import NewArticle from './NewArticle';
 
 function App() {
+  const [articles, setArticles] = useState(initialArticles);
+
+  const handleAddPost = (newPost) => {
+    const id = Date.now().toString(); 
+    setArticles([{ id, ...newPost }, ...articles]);
+  };
+
   return (
     <Routes>
       <Route path="/" element={
@@ -16,7 +24,7 @@ function App() {
         </ul>
       } />
       <Route path="/articles/:id" element={<Article />} />
-      <Route path="/articles/new" element={<NewArticle />} />
+      <Route path="/articles/new" element={<NewArticle onAddPost={handleAddPost} />} />
     </Routes>
   );
 }
