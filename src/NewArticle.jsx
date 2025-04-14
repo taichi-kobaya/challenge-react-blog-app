@@ -21,7 +21,12 @@ function PostForm() {
 
     return (
         <div className="p-4 max-w-md mx-auto">
-            {error && <p className="text-red-500">{error}</p>}
+            {error && (
+                <div className="flex items-center text-red-600 bg-red-100 border border-red-300 p-2 rounded animate-pulse">
+                    <span className="mr-2">⚠️</span>
+                    <span>{error}</span>
+                </div>
+            )}
             <form onSubmit={handleSubmit} className="space-y-2">
                 <input 
                     value={title}
