@@ -1,10 +1,9 @@
 import { useParams } from "react-router-dom";
 import NotFound from "./NotFound";
 
-function Article() {
+function Article({ articles }) {
     const { id } = useParams();
-    // ここは #9-3 で props 経由に切り替える予定。今回はその準備として import 削除のみ。
-    // const article = articles.find(a => a.id === Number(id));
+    const article = articles.find(a=> a.id === id || a.id === Number(id));
     
     if (!article) return <NotFound/>;
 

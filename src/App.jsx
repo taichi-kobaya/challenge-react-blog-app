@@ -23,7 +23,7 @@ function App() {
           ))}
         </ul>
       } />
-      <Route path="/articles/:id" element={<Article />} />
+      <Route path="/articles/:id" element={<Article articles={articles}/>} />
       <Route path="/articles/new" element={<NewArticle onAddPost={handleAddPost} />} />
     </Routes>
   );
