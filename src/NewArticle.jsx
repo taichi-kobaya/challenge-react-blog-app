@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function PostForm({ onAddPost }) {
+function PostForm({ onCreateArticle }) {
     const navigate = useNavigate();
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
@@ -23,7 +23,7 @@ function PostForm({ onAddPost }) {
         if (!title.trim() || !content.trim()) return;
 
         const newPost = { title, content };
-        onAddPost(newPost); 
+        onCreateArticle(newPost); 
 
         setTitle("");
         setContent("");

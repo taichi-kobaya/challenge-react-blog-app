@@ -5,26 +5,26 @@ import Article from './Article';
 import NewArticle from './NewArticle';
 
 function App() {
-  const [articles, setArticles] = useState(initialArticles);
+  const [articleList, setArticleList] = useState(initialArticles);
 
-  const handleAddPost = (newPost) => {
+  const handleCreateArticle = (newArticle) => {
     const id = Date.now().toString(); 
-    setArticles([{ id, ...newPost }, ...articles]);
+    setArticleList([{ id, ...newArticle }, ...articleList]);
   };
 
   return (
     <Routes>
       <Route path="/" element={
         <ul>
-          {articles.map(article => (
+          {articleList.map(article => (
             <li key={article.id}>
               <Link to={`/articles/${article.id}`}>{article.title}</Link>
             </li>
           ))}
         </ul>
       } />
-      <Route path="/articles/:id" element={<Article articles={articles}/>} />
-      <Route path="/articles/new" element={<NewArticle onAddPost={handleAddPost} />} />
+      <Route path="/articles/:id" element={<Article articles={articleList}/>} />
+      <Route path="/articles/new" element={<NewArticle onCreateArticle={handleCreateArticle} />} />
     </Routes>
   );
 }
